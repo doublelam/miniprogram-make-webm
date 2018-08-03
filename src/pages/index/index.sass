@@ -1,0 +1,57 @@
+@import @fortawesome/fontawesome-free/scss/fontawesome.scss
+@import @fortawesome/fontawesome-free/scss/fa-solid.scss
+@import '../../styles/common'
+
+.items-wrapper
+  display: flex
+  flex-direction: column
+  height: 100vh
+  justify-content: space-between
+
+  .canvas
+    background-color: $white
+    box-shadow: shadow(2)
+    flex: 1
+    width: 100vw
+
+  .bottom-tab
+    background-color: $orange
+    flex: none
+    height: 10vh
+    width: 100%
+
+    .swiper-for-menus
+      display: flex
+
+      .icon-wrapper
+        align-items: center
+        display: flex
+        flex: 1
+        justify-content: center
+
+        @for $var from 1 through 4
+          &:nth-child(#{$var})
+            .menu-item
+              animation-delay: #{($var - 1) * 0.1}s
+
+      .menu-item
+        +animate((name: up-float))
+        align-items: center
+        background-color: transparent
+        border-radius: 50%
+        color: darken($text-light-primary, 5%)
+        display: flex
+        height: 12vw
+        justify-content: center
+        margin: 0
+        padding: 0
+        transition: all .2s
+        width: 12vw
+
+      .menu-item-hover
+        background-color: darken($orange, 5%)
+
+      .fas
+        display: block
+        font-size: 26px
+        text-shadow: 1px 1px 0 transparentize($black, .9)

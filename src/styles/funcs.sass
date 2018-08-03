@@ -1,0 +1,21 @@
+$default-map: (delay: 0, direction: alternate, duration: 1s, fill-mode: forwards, iteration-count: 1, name: none, play-state: running, timing-function: ease-in-out)
+
+@function get-animate($map, $key)
+  @if map-has-key($map, $key)
+    @return map-get($map, $key)
+
+  @if map-has-key($default-map, $key)
+    @return map-get($default-map, $key)
+
+  @return null
+
+=animate($animate-map)
+  animation-delay: get-animate($animate-map, "delay")
+  animation-direction: get-animate($animate-map, "direction")
+  animation-duration: get-animate($animate-map, "duration")
+  animation-fill-mode: get-animate($animate-map, "fill-mode")
+  animation-iteration-count: get-animate($animate-map, "iteration-count")
+  animation-name: get-animate($animate-map, "name")
+  animation-play-state: get-animate($animate-map, "play-state")
+  animation-timing-function: get-animate($animate-map, "timing-function")
+
