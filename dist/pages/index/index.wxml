@@ -1,11 +1,13 @@
 <view class="items-wrapper">
-<view>page: {{pageIndex}}, du:{{durationDu}} </view>
-  <canvas class="canvas" id="canvas" canvas-id="canvas" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove"></canvas>
-  <swiper current="{{tabItemIndex}}" class="bottom-tab" bindchange="viewTabItem">
+  <view>
+    <canvas class="canvas" id="canvas" canvas-id="canvas" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove"></canvas>
+  </view>
+  <swiper current="{{tabItemIndex}}" class="bottom-tab" bindchange="changeTabItem">
     <swiper-item class="swiper-for-menus" wx:for="{{tabItems}}" wx:key="index">
       <view class="icon-wrapper" wx:key="{{btnIndex}}" wx:for="{{item.btns}}" wx:for-index="btnIndex" wx:for-item="btnItem" style="{{btnItem.style}}">
         <view class="menu-item" data-type="{{btnItem.type}}" bindtap="{{btnItem.bindTapMethod}}" hover-class="menu-item-hover" hover-start-time="0" hover-stay-time="200" ><span class="{{btnItem.class}}" /></view>
       </view>
     </swiper-item>
   </swiper>
+  <view animation="{{canvasAnimation}}">test</view>
 </view>

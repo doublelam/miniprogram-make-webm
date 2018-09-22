@@ -1,24 +1,27 @@
 @import @fortawesome/fontawesome-free/scss/fontawesome.scss
 @import @fortawesome/fontawesome-free/scss/fa-solid.scss
-@import '../../styles/common'
+@import ../../styles/common
 
 .items-wrapper
-  display: flex
-  flex-direction: column
-  height: 100vh
-  justify-content: space-between
-
   .canvas
     background-color: $white
-    box-shadow: shadow(2)
+    border: 1px solid $orange
     flex: 1
-    width: 100vw
+    width: 80vw
+    height: 80vw
+    border-radius: 50%
+    overflow: hidden
+    margin: auto
+    margin-top: 60rpx
 
   .bottom-tab
     background-color: $orange
     flex: none
     height: 10vh
     width: 100%
+    position: fixed
+    bottom: 0
+    left: 0
 
     .swiper-for-menus
       display: flex
@@ -36,6 +39,7 @@
 
       .menu-item
         +animate((name: up-float))
+
         align-items: center
         background-color: transparent
         border-radius: 50%
@@ -45,7 +49,7 @@
         justify-content: center
         margin: 0
         padding: 0
-        transition: all .2s
+        transition: all 0.2s
         width: 12vw
 
       .menu-item-hover
@@ -54,4 +58,4 @@
       .fas
         display: block
         font-size: 26px
-        text-shadow: 1px 1px 0 transparentize($black, .9)
+        text-shadow: 1px 1px 0 transparentize($black, 0.9)

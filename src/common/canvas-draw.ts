@@ -1,4 +1,3 @@
-import { ifMobile } from "./judge-end";
 import { Coordination, PointMode, StrikeStyle } from "./type";
 export class CanvasDrawable {
   private canvasContext: wx.CanvasContext;
