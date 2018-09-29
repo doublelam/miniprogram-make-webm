@@ -1,13 +1,18 @@
-<view class="items-wrapper">
-  <view>
-    <canvas class="canvas" id="canvas" canvas-id="canvas" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove"></canvas>
+<view class="image-wrapper">
+  <view class="image-item">
+    <view wx:if="{{!imageSrc}}" class="fake-img fas fa-user-ninja"></view>
+    <image mode="widthFix" class="real-img" wx:else src="{{imageSrc}}" />
   </view>
-  <swiper current="{{tabItemIndex}}" class="bottom-tab" bindchange="changeTabItem">
-    <swiper-item class="swiper-for-menus" wx:for="{{tabItems}}" wx:key="index">
-      <view class="icon-wrapper" wx:key="{{btnIndex}}" wx:for="{{item.btns}}" wx:for-index="btnIndex" wx:for-item="btnItem" style="{{btnItem.style}}">
-        <view class="menu-item" data-type="{{btnItem.type}}" bindtap="{{btnItem.bindTapMethod}}" hover-class="menu-item-hover" hover-start-time="0" hover-stay-time="200" ><span class="{{btnItem.class}}" /></view>
-      </view>
-    </swiper-item>
-  </swiper>
-  <view animation="{{canvasAnimation}}">test</view>
+  <view>
+    <image src="{{starInfo.url}}"/>
+    <text>{{starInfo.user_id}}{{starInfo.name}}</text>
+  </view>
+</view>
+<view class="btns-wrapper">
+  <view hover-start-time="0" bind:tap="onChooseImg" hover-class="hover-btn" class="btn top-btn">选择图片</view>
+  <view hover-start-time="0" bind:tap="compareStart" hover-class="hover-btn" class="btn bottom-btn">看看最像哪位大明星</view>
+  <button hover-start-time="0" open-type="share" hover-class="hover-btn" class="btn share-btn">
+    <view class="fas fa-share-alt" />
+    分享小程序
+  </button>
 </view>

@@ -4701,83 +4701,82 @@ readers do not read off random characters that represent icons */
   }
 }
 
-.items-wrapper .canvas {
-  background-color: #fff;
-  border: 1px solid #ff9800;
-  flex: 1;
-  width: 80vw;
-  height: 80vw;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: auto;
-  margin-top: 60rpx;
+Page,
+view {
+  box-sizing: border-box;
 }
 
-.items-wrapper .bottom-tab {
-  background-color: #ff9800;
-  flex: none;
-  height: 10vh;
+.image-wrapper {
+  display: flex;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus {
-  display: flex;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus .icon-wrapper {
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.3);
   align-items: center;
-  display: flex;
-  flex: 1;
   justify-content: center;
+  background-size: 4%;
+  padding: 60rpx;
 }
 
-.items-wrapper .bottom-tab .swiper-for-menus .icon-wrapper:nth-child(1) .menu-item {
-  animation-delay: 0s;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus .icon-wrapper:nth-child(2) .menu-item {
-  animation-delay: 0.1s;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus .icon-wrapper:nth-child(3) .menu-item {
-  animation-delay: 0.2s;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus .icon-wrapper:nth-child(4) .menu-item {
-  animation-delay: 0.3s;
-}
-
-.items-wrapper .bottom-tab .swiper-for-menus .menu-item {
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: up-float;
-  animation-play-state: running;
-  animation-timing-function: ease-in-out;
+.image-wrapper .image-item {
+  width: 80%;
+  border: 1px solid #919e9e;
+  border-radius: 10rpx;
+  display: flex;
   align-items: center;
-  background-color: transparent;
-  border-radius: 50%;
-  color: #f2f2f2;
-  display: flex;
-  height: 12vw;
   justify-content: center;
-  margin: 0;
-  padding: 0;
-  transition: all 0.2s;
-  width: 12vw;
+  padding: 20rpx;
 }
 
-.items-wrapper .bottom-tab .swiper-for-menus .menu-item-hover {
-  background-color: #e68900;
+.image-wrapper .image-item .fake-img {
+  font-size: 400rpx;
+  color: #919e9e;
 }
 
-.items-wrapper .bottom-tab .swiper-for-menus .fas {
-  display: block;
-  font-size: 26px;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+.image-wrapper .image-item .real-img {
+  width: 100%;
+}
+
+.btns-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40rpx;
+}
+
+.btns-wrapper .btn {
+  display: inline-block;
+  padding: 20rpx 40rpx;
+  background-color: #ff9800;
+  color: #fff;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  transition: .2s;
+}
+
+.btns-wrapper .btn.top-btn {
+  box-shadow: 0 15rpx 0 #995b00, 0 25rpx 5rpx rgba(0, 0, 0, 0.2);
+}
+
+.btns-wrapper .btn.top-btn.hover-btn {
+  box-shadow: 0 0 0 #000;
+  transform: translateY(15rpx);
+}
+
+.btns-wrapper .btn.bottom-btn {
+  box-shadow: 0 10rpx 0 #995b00, 0 20rpx 5rpx rgba(0, 0, 0, 0.2);
+}
+
+.btns-wrapper .btn.bottom-btn.hover-btn {
+  box-shadow: 0 0 0 #000;
+  transform: translateY(10rpx);
+}
+
+.btns-wrapper .btn.share-btn {
+  background-color: #009688;
+  box-shadow: 0 5rpx 0 #00302c, 0 15rpx 5rpx rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+.btns-wrapper .btn.share-btn.hover-btn {
+  box-shadow: 0 0 0 #000;
+  transform: translateY(5rpx);
 }

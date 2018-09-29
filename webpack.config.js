@@ -9,14 +9,15 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, '/dist'),
-    publicPath: 'build/'
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
   module: {
-    rules: [
-      { test: /\.ts$/, use: 'ts-loader' },
+    rules: [{
+        test: /\.ts$/,
+        use: 'ts-loader'
+      },
       {
         test: /\.sa|css$/,
         use: ExtractTextPlugin.extract({
@@ -35,9 +36,9 @@ module.exports = {
         }]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(jpeg|jpg|png|woff|woff2|eot|ttf|svg)$/,
         use: [{
-          loader: 'url-loader'
+          loader: 'url-loader',
         }]
       }
     ]
