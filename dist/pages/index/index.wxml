@@ -1,18 +1,45 @@
+<!-- <view class="page-title">看看你和明星的相似度</view> -->
 <view class="image-wrapper">
-  <view class="image-item">
-    <view wx:if="{{!imageSrc}}" class="fake-img fas fa-user-ninja"></view>
-    <image mode="widthFix" class="real-img" wx:else src="{{imageSrc}}" />
+  <view animation="{{selfAnimation}}" class="image-item">
+    <view bind:tap="clickAvatar" wx:if="{{!imageSrc}}" class="fake-img fas fa-user-ninja {{ifAnimated}}"></view>
+    <image bind:tap="previewImgs" data-origin="selfImg" mode="widthFix" class="real-img" wx:else src="{{imageSrc}}" />
   </view>
-  <view>
-    <image src="{{starInfo.url}}"/>
-    <text>{{starInfo.user_id}}{{starInfo.name}}</text>
+  <view animation="{{starAnimation}}" class="star-img-wrapper">
+    <image bind:tap="previewImgs" data-origin="starImg" mode="widthFix" class="star-img" src="{{starInfo.url}}"/>
+    <view class="star-name-text">{{starInfo.name}}</view>
   </view>
+  <view animation="{{descAnimation}}" class="describe-text">{{starInfo.conCoppy}} 相似度 <text class="desc-num">{{starInfo.confidence}}</text>%</view>
 </view>
 <view class="btns-wrapper">
   <view hover-start-time="0" bind:tap="onChooseImg" hover-class="hover-btn" class="btn top-btn">选择图片</view>
   <view hover-start-time="0" bind:tap="compareStart" hover-class="hover-btn" class="btn bottom-btn">看看最像哪位大明星</view>
-  <button hover-start-time="0" open-type="share" hover-class="hover-btn" class="btn share-btn">
-    <view class="fas fa-share-alt" />
-    分享小程序
-  </button>
+  <view class="sub-views">
+    <button hover-start-time="0" open-type="share" hover-class="hover-btn" class="btn share-btn">
+      <view class="fas fa-share-alt" />
+      分享
+    </button>
+    <button bind:tap="onAbout" hover-start-time="0" hover-class="hover-btn" class="btn about">
+      <view class="fas fa-info" />
+      关于
+    </button>
+  </view>
+</view>
+
+<view wx:if="{{showPopup}}" class="popup">
+  <view bind:tap="hidePopup" class="fake-mask"></view>
+  <view class="modal">
+    <view class="modal-title">关于<text class="fas fa-info" /></view>
+    <view class="article">
+      <text class="title">权限：</text>
+      <text class="content">不要求任何权限，不会获取任何包括微信号、微信昵称等个人信息</text>
+      <text class="title">上传图片相关：</text>
+      <text class="content">上传图片匹配人脸使用face++人脸识别系统，不会将图片上传至除了face++ 相关接口以外的任何服务器</text>
+      <text class="title">明星图片：</text>
+      <text class="content">使用橘子娱乐 happyjuzi.com网站所展示的部分明星照片</text>
+      <text class="title">其他：</text>
+      <view class="content">有任何建议或意见请发送邮件到 
+        <text bind:tap="coppyToClipBoard" data-coppy-text="donlin.work@gmail.com" class="fragment-hightlight">donlin.work@gmail.com</text>
+      </view>
+    </view>
+  </view>
 </view>

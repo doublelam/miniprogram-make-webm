@@ -410,6 +410,18 @@ declare namespace wx {
      */
     export function chooseImage(options: ChooseImageOptions): void;
 
+    export function createCameraContext(option: IPage<any>): wx.CameraContext;
+
+    export interface CameraContext {
+        takePhoto: (obj: {
+            quality?: string;
+            success?: (res?: any) => void
+            fail?: () => void
+            complete?: () => void
+        }) => void;
+        startRecord: () => void;
+        stopRecord: () => void;
+    }
     export interface PreviewImageOptions extends BaseOptions {
 
         /**
@@ -1337,11 +1349,21 @@ declare namespace wx {
      * 显示消息提示框
      */
     export function showToast(options: ShowToastOptions): void;
-
+    
     /**
      * 隐藏消息提示框
      */
     export function hideToast(): void;
+
+    /**
+     * loading animation
+     */
+    export function showLoading(options: ShowToastOptions): void;
+
+    /** 
+     * hide loading
+     */
+    export function hideLoading(): void;
 
     export interface ShowModalResult {
 

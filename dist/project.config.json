@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "wx02eb2b75e0e66c89",
-	"projectname": "webm",
+	"libVersion": "2.3.0",
+	"appid": "",
+	"projectname": "测一测和你最像的明星是谁",
 	"svr": "/",
 	"client": "/",
 	"qcloudRoot": "/",

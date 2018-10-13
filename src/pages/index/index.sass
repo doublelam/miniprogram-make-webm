@@ -2,9 +2,21 @@
 @import @fortawesome/fontawesome-free/scss/fa-solid.scss
 @import ../../styles/common
 
-Page, view 
+Page, view
   box-sizing: border-box
+
+Page
+  background-color: #eee
+
+.page-title
+  text-align: center
+  color: $text-light-primary
+  font-size: 36rpx
+  padding: 10rpx
+  background-color: darken($orange, 2%)
+
 .image-wrapper
+  position: relative
   display: flex
   width: 100%
   box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.3)
@@ -12,24 +24,71 @@ Page, view
   justify-content: center
   background-size: 4%
   padding: 60rpx
-  .image-item 
+  background-color: #ddd
+  perspective: 500px
+
+  .image-item
     width: 80%
-    border: 1px solid $grey
     border-radius: 10rpx
     display: flex
     align-items: center
     justify-content: center
     padding: 20rpx
-    .fake-img 
+
+    .fake-img
       font-size: 400rpx
       color: $grey
+
     .real-img
       width: 100%
-.btns-wrapper 
+
+  .star-img-wrapper
+    position: relative
+    width: 0
+    padding: 20rpx
+    border-radius: 10rpx
+    background-color: $grey
+
+    .star-img
+      width: 100%
+
+    .star-name-text
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      text-align: center
+      font-size: 26rpx
+      padding: 10rpx 15rpx
+      color: $text-light-primary
+      background-color: rgba(0, 0, 0, 0.4)
+
+  .describe-text
+    position: absolute
+    color: $deep-orange
+    font-size: 28rpx
+    padding: 10rpx 20rpx
+    opacity: 0.8
+    align-self: flex-end
+    border: 3px solid $deep-orange
+
+    .desc-num
+      color: $red
+      font-size: 32rpx
+      font-weight: bold
+
+.btns-wrapper
   display: flex
   align-items: center
   flex-direction: column
-  padding: 40rpx 
+  padding: 40rpx
+
+  .sub-views
+    display: flex
+    width: 100%
+    justify-content: space-around
+    align-items: center
+
   .btn
     display: inline-block
     padding: 20rpx 40rpx
@@ -37,21 +96,93 @@ Page, view
     color: $white
     margin: 20rpx
     border-radius: 20rpx
-    transition: .2s
+    transition: 0.2s
+
     &.top-btn
-      box-shadow: 0 15rpx 0 darken($orange, 20%), 0 25rpx 5rpx rgba(0, 0, 0, .2)
+      box-shadow: 0 15rpx 0 darken($orange, 20%), 0 25rpx 5rpx rgba(0, 0, 0, 0.2)
+
       &.hover-btn
         box-shadow: 0 0 0 $black
         transform: translateY(15rpx)
+
     &.bottom-btn
-      box-shadow: 0 10rpx 0 darken($orange, 20%), 0 20rpx 5rpx rgba(0, 0, 0, .2)
+      box-shadow: 0 10rpx 0 darken($orange, 20%), 0 20rpx 5rpx rgba(0, 0, 0, 0.2)
+
       &.hover-btn
         box-shadow: 0 0 0 $black
         transform: translateY(10rpx)
+
     &.share-btn
       background-color: $teal
-      box-shadow: 0 5rpx 0 darken($teal, 20%), 0 15rpx 5rpx rgba(0, 0, 0, .2)
+      box-shadow: 0 5rpx 0 darken($teal, 20%), 0 15rpx 5rpx rgba(0, 0, 0, 0.2)
       line-height: 1.2
+
       &.hover-btn
         box-shadow: 0 0 0 $black
         transform: translateY(5rpx)
+
+    &.about
+      color: $teal
+      background-color: $white
+      border: 1px solid $teal
+      box-shadow: 0 5rpx 0 darken($teal, 10%), 0 15rpx 5rpx rgba(0, 0, 0, 0.2)
+      line-height: 1.2
+
+      &.hover-btn
+        box-shadow: 0 0 0 $black
+        transform: translateY(5rpx)
+
+.popup
+  position: fixed
+  display: flex
+  align-items: center
+  justify-content: center
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+
+  .fake-mask
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background-color: rgba(0, 0, 0, 0.8)
+
+  .modal
+    position: relative
+    background-color: $white
+    border-radius: 10rpx
+    overflow: hidden
+    width: 80%
+    height: auto
+
+    .modal-title
+      background-color: $orange
+      box-shadow: shadow(2)
+      color: $text-light-primary
+      padding: 20rpx 20rpx
+      font-size: 32rpx
+      .fa-info
+        margin-left: 10rpx
+
+    .article
+      padding: 20rpx
+
+      .title
+        display: block
+        font-size: 28rpx
+        color: $text-dark-primary
+
+      .content
+        display: block
+        padding: 5rpx 5rpx
+        padding-bottom: 20rpx
+        font-size: 26rpx
+        color: $text-dark-secondary
+.fragment-hightlight
+  color: $blue
+
+.avatar-animate
+  animation: avatar-coloring 5s linear infinite alternate
