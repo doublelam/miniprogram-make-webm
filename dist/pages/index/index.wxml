@@ -24,6 +24,7 @@
     </button>
   </view>
 </view>
+<ad wx:if="{{showAD}}" unit-id="adunit-da2982e664c6d935"></ad>
 
 <view wx:if="{{showPopup}}" class="popup">
   <view bind:tap="hidePopup" class="fake-mask"></view>

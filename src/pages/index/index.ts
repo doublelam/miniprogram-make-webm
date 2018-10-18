@@ -18,6 +18,7 @@ interface IndexData {
   descAnimation?: wx.Animation;
   showPopup?: boolean;
   ifAnimated?: string;
+  showAD?: boolean;
 }
 const KEYS_INFO = {
   api_key: "g59sAr8tmZBK4LgGBLtpY_3VRYPldTqu",
@@ -73,7 +74,7 @@ class IndexPage implements IPage<IndexData> {
   }
 
   public previewImgs(e): void {
-    const IMG_LIST = [this.data.imageSrc, this.data.starInfo.url ];
+    const IMG_LIST = [this.data.imageSrc, this.data.starInfo.url];
     const ORIGIN_MAP = {
       selfImg: IMG_LIST[0],
       starImg: IMG_LIST[1],
@@ -214,6 +215,9 @@ class IndexPage implements IPage<IndexData> {
       selfAnimation: selfAni.export(),
       starAnimation: starAni.export(),
     });
+    this.setData({
+      showAD: false,
+    });
   }
 
   private showStarImg() {
@@ -228,6 +232,10 @@ class IndexPage implements IPage<IndexData> {
       selfAnimation: selfAni.export(),
       starAnimation: starAni.export(),
     });
+    this.setData({
+      showAD: true,
+    });
+
   }
 
 }
