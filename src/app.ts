@@ -5,7 +5,7 @@ App({
   },
 
   onLaunch: () => {
-    console.log("APP LAUNCH FROM TS");
+    wx.cloud.init({env: "face-3915fb"});
   },
 
 });

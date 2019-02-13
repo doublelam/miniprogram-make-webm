@@ -2214,6 +2214,40 @@ declare namespace wx {
      */
     export function createSelectorQuery(): SelectorQuery;
 
+    /*
+     * 可以使用select等方法选择节点，并使用boundingClientRect等方法选择需要查询的信息
+     */
+    export function createSelectorQuery(): SelectorQuery;
+
+    /* 
+     * 云函数 
+     */
+    export interface InitOpt {
+        env?: string | {
+            database?: string;
+            storage?: string;
+            functions?: string;
+        }, traceUser?: boolean;
+    }
+    export interface CallFuncOpt {
+        name: string;
+        data?: { [x: string]: any };
+        success?: (res: { result: any }) => any;
+        fail?: (res: { error: string }) => any;
+        [x: string]: any;
+    }
+    export interface UploadFileOpt {
+        cloudPath: string;
+        filePath: string;
+        success?: (res: { fileID: string }) => any;
+        fail?: (e: string) => any;
+    }
+    export const cloud: {
+        init: (opt: InitOpt) => any;
+        callFunction: (opt: CallFuncOpt) => any;
+        uploadFile: (opt: UploadFileOpt) => any;
+    }
+
 }
 interface Rect {
     id: string;
